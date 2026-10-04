@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FDFBF7] text-[#351806] font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom subtle scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F2EA;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #DECDBD;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C9A887;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-chai-800 text-white font-medium text-sm hover:bg-chai-900 active:scale-[0.98] transition-all duration-150 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-chai-800;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white border border-[#E8E2D8] text-[#522A0D] font-medium text-sm hover:bg-chai-50 hover:border-chai-300 active:scale-[0.98] transition-all duration-150 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-red-600 text-white font-medium text-sm hover:bg-red-700 active:scale-[0.98] transition-all duration-150 shadow-sm;
+  }
+  .input-field {
+    @apply w-full px-3.5 py-2.5 bg-white border border-[#E8E2D8] rounded-lg text-sm text-[#230E03] placeholder-[#A8A193] focus:outline-none focus:ring-2 focus:ring-chai-700/20 focus:border-chai-700 transition duration-150;
+  }
+  .select-field {
+    @apply w-full px-3.5 py-2.5 bg-white border border-[#E8E2D8] rounded-lg text-sm text-[#230E03] focus:outline-none focus:ring-2 focus:ring-chai-700/20 focus:border-chai-700 transition duration-150;
+  }
+  .card {
+    @apply bg-white border border-[#EFE8DE] rounded-xl shadow-[0_2px_8px_-2px_rgba(53,24,6,0.04)];
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* Print styling for Invoices and Reports */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
